@@ -19,9 +19,9 @@ use Selency\OpenApi\Model\SecuritySchemeIn;
  */
 class SecuritySchemeConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\NameTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\NameTrait;
 
     private string $type = '';
     private ?SecuritySchemeIn $in = null;

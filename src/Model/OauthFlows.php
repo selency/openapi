@@ -9,8 +9,6 @@
 
 namespace Selency\OpenApi\Model;
 
-use Selency\Validator\Constraints as Assert;
-
 /**
  * @author Titouan Galopin <galopintitouan@gmail.com>
  * @author Selency Team <tech@selency.fr>
@@ -20,18 +18,10 @@ class OauthFlows implements OpenApiModel
     use OpenApiTrait;
 
     public function __construct(
-        #[Assert\Valid]
         private readonly ?OauthFlow $implicit = null,
-
-        #[Assert\Valid]
         private readonly ?OauthFlow $password = null,
-
-        #[Assert\Valid]
         private readonly ?OauthFlow $clientCredentials = null,
-
-        #[Assert\Valid]
         private readonly ?OauthFlow $authorizationCode = null,
-
         private readonly array $specificationExtensions = [],
     ) {
     }

@@ -18,9 +18,9 @@ use Selency\OpenApi\Model\Server;
  */
 class LinkConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ParametersTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ParametersTrait;
 
     private ?string $operationRef = null;
     private ?string $operationId = null;

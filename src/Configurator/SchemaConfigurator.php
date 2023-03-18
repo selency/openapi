@@ -20,10 +20,10 @@ use Selency\OpenApi\Model\Xml;
  */
 class SchemaConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DeprecatedTrait;
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExternalDocsTrait;
+    use Traits\DeprecatedTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ExternalDocsTrait;
 
     private const PHP_TO_OPENAPI_TYPE = [
         'null' => 'null',

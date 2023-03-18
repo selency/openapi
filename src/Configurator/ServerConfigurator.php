@@ -17,9 +17,9 @@ use Selency\OpenApi\Model\Server;
  */
 class ServerConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ServerVariablesTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ServerVariablesTrait;
 
     public function __construct(private readonly string $url)
     {

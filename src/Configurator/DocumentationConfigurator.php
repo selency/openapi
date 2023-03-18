@@ -12,6 +12,7 @@ namespace Selency\OpenApi\Configurator;
 use Selency\OpenApi\Model\Components;
 use Selency\OpenApi\Model\OpenApi;
 use Selency\OpenApi\Model\PathItem;
+use Selency\OpenApi\Model\Reference;
 use Selency\OpenApi\Model\SecurityRequirement;
 use Selency\OpenApi\Model\Tag;
 
@@ -21,9 +22,9 @@ use Selency\OpenApi\Model\Tag;
  */
 class DocumentationConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExternalDocsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ServersTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ExternalDocsTrait;
+    use Traits\ServersTrait;
 
     private string $version = '3.1.0';
     private ?string $jsonSchemaDialect = null;
@@ -36,12 +37,12 @@ class DocumentationConfigurator
     private array $tags = [];
 
     /**
-     * @var array<string, PathItem>
+     * @var array<string, PathItem|Reference>
      */
     private array $paths = [];
 
     /**
-     * @var array<string, PathItem>
+     * @var array<string, PathItem|Reference>
      */
     private array $webhooks = [];
 

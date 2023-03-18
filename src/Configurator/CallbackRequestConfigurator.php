@@ -19,7 +19,7 @@ use Selency\OpenApi\Model\Reference;
  */
 class CallbackRequestConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
+    use Traits\ExtensionsTrait;
 
     private string $expression = '';
     private PathItem|Reference|null $definition = null;

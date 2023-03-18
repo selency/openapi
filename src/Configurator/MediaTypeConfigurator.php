@@ -18,9 +18,9 @@ use Selency\OpenApi\Model\MediaType;
  */
 class MediaTypeConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ExamplesTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\SchemaTrait;
+    use Traits\ExamplesTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\SchemaTrait;
 
     /**
      * @var array<string, Encoding>

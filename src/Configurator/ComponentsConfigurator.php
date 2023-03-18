@@ -17,7 +17,7 @@ use Selency\OpenApi\Model\Components;
  */
 class ComponentsConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
+    use Traits\ExtensionsTrait;
 
     private array $schemas = [];
     private array $responses = [];

@@ -19,8 +19,8 @@ use Selency\OpenApi\Model\Responses;
  */
 class ResponsesConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ResponsesTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ResponsesTrait;
 
     private Response|Reference|null $default = null;
 
