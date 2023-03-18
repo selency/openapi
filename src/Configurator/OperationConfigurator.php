@@ -23,14 +23,14 @@ use Selency\OpenApi\Model\SecurityRequirement;
  */
 class OperationConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DeprecatedTrait;
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExternalDocsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ParametersTrait;
-    use \Selency\OpenApi\Configurator\Traits\QueryParametersTrait;
-    use \Selency\OpenApi\Configurator\Traits\ServersTrait;
-    use \Selency\OpenApi\Configurator\Traits\SummaryTrait;
+    use Traits\DeprecatedTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ExternalDocsTrait;
+    use Traits\ParametersTrait;
+    use Traits\QueryParametersTrait;
+    use Traits\ServersTrait;
+    use Traits\SummaryTrait;
 
     private ?string $operationId = null;
 

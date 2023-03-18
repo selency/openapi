@@ -17,9 +17,9 @@ use Selency\OpenApi\Model\RequestBody;
  */
 class RequestBodyConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ContentTrait;
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
+    use Traits\ContentTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
 
     private ?bool $required = null;
 

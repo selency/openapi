@@ -17,11 +17,11 @@ use Selency\OpenApi\Model\Response;
  */
 class ResponseConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ContentTrait;
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\HeadersTrait;
-    use \Selency\OpenApi\Configurator\Traits\LinksTrait;
+    use Traits\ContentTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\HeadersTrait;
+    use Traits\LinksTrait;
 
     public function build(): Response
     {

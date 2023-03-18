@@ -2,6 +2,16 @@ name: Unit Tests
 
 on:
     pull_request: ~
+    push:
+        branches:
+            - main
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
 
 jobs:
     tests:
@@ -11,14 +21,15 @@ jobs:
         strategy:
             matrix:
                 include:
-                    - php: '8.1'
-                      symfony: '6.2'
-                    - php: '8.1'
-                      symfony: '6.2'
-                      mode: high-deps
                     - php: '8.2'
                       symfony: '6.2'
                       mode: low-deps
+                      deprecations_helper: max[self]=0
+
+                    - php: '8.1'
+                      symfony: '6.2'
+                      mode: high-deps
+                      deprecations_helper: disabled=1
 
             fail-fast: false
 
@@ -35,7 +46,7 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  composer require --no-update --dev symfony/phpunit-bridge=${{ matrix.symfony }} symfony/validator=${{ matrix.symfony }} symfony/yaml=${{ matrix.symfony }}
+                  composer require --no-update --dev symfony/phpunit-bridge=${{ matrix.symfony }} symfony/yaml=${{ matrix.symfony }}
                   
                   if [[ "${{ matrix.mode }}" = low-deps ]]; then
                       composer update --prefer-dist --no-interaction --no-ansi --no-progress --prefer-lowest
@@ -44,4 +55,4 @@ jobs:
                   fi
 
             - name: Run tests
-              run: php vendor/bin/simple-phpunit
+              run: SYMFONY_DEPRECATIONS_HELPER="${{ matrix.deprecations_helper }}" php vendor/bin/simple-phpunit

@@ -19,8 +19,8 @@ use Selency\OpenApi\Model\OpenApiTrait;
 class QueryParametersConfigurator
 {
     use OpenApiTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\QueryParametersTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\QueryParametersTrait;
 
     public function __construct(OpenApiBuilderInterface $openApiBuilder)
     {

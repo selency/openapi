@@ -10,7 +10,6 @@
 namespace Selency\OpenApi\Model;
 
 use Selency\OpenApi\Configurator\InfoConfigurator;
-use Selency\Validator\Constraints as Assert;
 
 /**
  * @author Titouan Galopin <galopintitouan@gmail.com>
@@ -28,37 +27,16 @@ class OpenApi implements OpenApiModel
      * @param Tag[]|null                             $tags
      */
     public function __construct(
-        #[Assert\NotBlank]
-        #[Assert\Choice(['3.1.0'])]
         private readonly string $version,
-
-        #[Assert\Valid]
         private readonly Info $info,
-
-        #[Assert\All([new Assert\Type(Server::class), new Assert\Valid()])]
         private readonly ?array $servers = null,
-
-        #[Assert\All([new Assert\Type([PathItem::class, Reference::class]), new Assert\Valid()])]
         private readonly ?array $paths = null,
-
-        #[Assert\All([new Assert\Type([PathItem::class, Reference::class]), new Assert\Valid()])]
         private readonly ?array $webhooks = null,
-
-        #[Assert\Valid]
         private readonly ?Components $components = null,
-
-        #[Assert\All([new Assert\Type(SecurityRequirement::class), new Assert\Valid()])]
         private readonly ?array $security = null,
-
-        #[Assert\All([new Assert\Type(Tag::class), new Assert\Valid()])]
         private readonly ?array $tags = null,
-
-        #[Assert\Valid]
         private readonly ?ExternalDocumentation $externalDocs = null,
-
-        #[Assert\Url]
         private readonly ?string $jsonSchemaDialect = null,
-
         private readonly array $specificationExtensions = [],
     ) {
     }
@@ -82,7 +60,7 @@ class OpenApi implements OpenApiModel
     }
 
     /**
-     * @return array<string, PathItem>|null
+     * @return array<string, PathItem|Reference>|null
      */
     public function getPaths(): ?array
     {
@@ -90,7 +68,7 @@ class OpenApi implements OpenApiModel
     }
 
     /**
-     * @return array<string, PathItem>|null
+     * @return array<string, PathItem|Reference>|null
      */
     public function getWebhooks(): ?array
     {

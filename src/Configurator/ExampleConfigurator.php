@@ -17,9 +17,9 @@ use Selency\OpenApi\Model\Example;
  */
 class ExampleConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\SummaryTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\SummaryTrait;
 
     private mixed $value = null;
     private ?string $externalValue = null;

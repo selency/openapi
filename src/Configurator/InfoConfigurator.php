@@ -19,9 +19,9 @@ use Selency\OpenApi\Model\License;
  */
 class InfoConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\SummaryTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\SummaryTrait;
 
     private string $title = '';
     private string $version = '';

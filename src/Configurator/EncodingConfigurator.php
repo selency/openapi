@@ -17,15 +17,15 @@ use Selency\OpenApi\Model\Encoding;
  */
 class EncodingConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\HeadersTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\HeadersTrait;
 
     private ?string $contentType = null;
     private ?string $style = null;
     private ?bool $explode = null;
     private ?bool $allowReserved = null;
 
-    public function build(): ?Encoding
+    public function build(): Encoding
     {
         return new Encoding(
             $this->contentType,

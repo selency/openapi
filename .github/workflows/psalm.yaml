@@ -1,0 +1,38 @@
+name: Psalm
+
+on:
+    pull_request: ~
+    push:
+        branches:
+            - main
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    psalm:
+        name: Psalm
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.1
+                  coverage: none
+                  ini-values: date.timezone=UTC,memory_limit=-1,session.gc_probability=0,apc.enable_cli=1,zend.assertions=1
+
+            - name: Install dependencies
+              run: |
+                  composer update --prefer-dist --no-interaction --no-ansi --no-progress
+                  composer require --dev phpunit/phpunit:^9.5 sebastian/diff:^4.0
+
+            - name: Psalm
+              run: php vendor/bin/psalm --output-format=github --no-progress

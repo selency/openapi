@@ -18,13 +18,13 @@ use Selency\OpenApi\Model\ParameterIn;
  */
 class ParameterConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\ContentTrait;
-    use \Selency\OpenApi\Configurator\Traits\DeprecatedTrait;
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExamplesTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\NameTrait;
-    use \Selency\OpenApi\Configurator\Traits\SchemaTrait;
+    use Traits\ContentTrait;
+    use Traits\DeprecatedTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExamplesTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\NameTrait;
+    use Traits\SchemaTrait;
 
     private ?ParameterIn $in = null;
     private ?bool $required = null;

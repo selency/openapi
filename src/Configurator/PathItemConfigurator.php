@@ -19,12 +19,12 @@ use Selency\OpenApi\Model\PathItem;
  */
 class PathItemConfigurator
 {
-    use \Selency\OpenApi\Configurator\Traits\DescriptionTrait;
-    use \Selency\OpenApi\Configurator\Traits\ExtensionsTrait;
-    use \Selency\OpenApi\Configurator\Traits\ParametersTrait;
-    use \Selency\OpenApi\Configurator\Traits\QueryParametersTrait;
-    use \Selency\OpenApi\Configurator\Traits\ServersTrait;
-    use \Selency\OpenApi\Configurator\Traits\SummaryTrait;
+    use Traits\DescriptionTrait;
+    use Traits\ExtensionsTrait;
+    use Traits\ParametersTrait;
+    use Traits\QueryParametersTrait;
+    use Traits\ServersTrait;
+    use Traits\SummaryTrait;
 
     private ?string $ref = null;
     private ?Operation $get = null;
