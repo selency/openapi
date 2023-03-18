@@ -1,0 +1,47 @@
+name: Unit Tests
+
+on:
+    pull_request: ~
+
+jobs:
+    tests:
+        name: Unit Tests
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                include:
+                    - php: '8.1'
+                      symfony: '6.2'
+                    - php: '8.1'
+                      symfony: '6.2'
+                      mode: high-deps
+                    - php: '8.2'
+                      symfony: '6.2'
+                      mode: low-deps
+
+            fail-fast: false
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "${{ matrix.php }}"
+                  coverage: none
+                  ini-values: date.timezone=UTC,memory_limit=-1,session.gc_probability=0,apc.enable_cli=1,zend.assertions=1
+
+            - name: Install dependencies
+              run: |
+                  composer require --no-update --dev symfony/phpunit-bridge=${{ matrix.symfony }} symfony/validator=${{ matrix.symfony }} symfony/yaml=${{ matrix.symfony }}
+                  
+                  if [[ "${{ matrix.mode }}" = low-deps ]]; then
+                      composer update --prefer-dist --no-interaction --no-ansi --no-progress --prefer-lowest
+                  else
+                      composer update --prefer-dist --no-interaction --no-ansi --no-progress
+                  fi
+
+            - name: Run tests
+              run: php vendor/bin/simple-phpunit
