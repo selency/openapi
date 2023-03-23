@@ -14,6 +14,10 @@ We're always looking for talented people, [join us](https://www.welcometothejung
 
 ## Usage
 
+```
+composer require selency/openapi
+```
+
 Selency OpenApi implements the OpenApi standard in its version 3.1. It allows to build
 documentations using PHP objects, giving more flexibility and reusability to OpenApi
 definitions. All features of OpenApi 3.1 are supported.
@@ -24,6 +28,8 @@ The OpenApi component provides object-oriented PHP tools to build the documentat
 definition:
 
 ```php
+// openapi/Documentation.php
+
 use Symfony\Component\OpenApi\src\Documentation\AbstractDocumentation;
 
 class Documentation extends AbstractDocumentation
@@ -287,10 +293,3 @@ class Documentation extends AbstractDocumentation
     }
 }
 ```
-
-## Resources
-
-* [Contributing](https://symfony.com/doc/current/contributing/index.html)
-* [Report issues](https://github.com/symfony/symfony/issues) and
-  [send Pull Requests](https://github.com/symfony/symfony/pulls)
-  in the [main Symfony repository](https://github.com/symfony/symfony)
