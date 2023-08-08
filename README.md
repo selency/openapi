@@ -248,7 +248,7 @@ dedicated loader during compilation:
 ```php
 // Build a read-only model representing the documentation
 $compiler = new DocumentationCompiler([
-    new \Symfony\Component\OpenApi\src\Loader\SelfDescribingSchemaLoader([
+    new Selency\OpenApi\Loader\SelfDescribingSchemaLoader([
         AuthRegisterPayload::class,
     ])
 ]);
