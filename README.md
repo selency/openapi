@@ -30,7 +30,7 @@ definition:
 ```php
 // openapi/Documentation.php
 
-use Symfony\Component\OpenApi\src\Documentation\AbstractDocumentation;
+use Selency\Documentation\AbstractDocumentation;
 
 class Documentation extends AbstractDocumentation
 {
@@ -105,7 +105,7 @@ in multiple files for readability:
 
 ```php
 // HealthDocumentation.php
-use Symfony\Component\OpenApi\src\Documentation\PartialDocumentationInterface;
+use Selency\Documentation\PartialDocumentationInterface;
 
 #[AutoconfigureTag('app.partial_documentation')]
 class HealthDocumentation implements PartialDocumentationInterface
