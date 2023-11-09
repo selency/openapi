@@ -30,7 +30,7 @@ definition:
 ```php
 // openapi/Documentation.php
 
-use Symfony\Component\OpenApi\src\Documentation\AbstractDocumentation;
+use Selency\OpenApi\Documentation\AbstractDocumentation;
 
 class Documentation extends AbstractDocumentation
 {
@@ -105,7 +105,7 @@ in multiple files for readability:
 
 ```php
 // HealthDocumentation.php
-use Symfony\Component\OpenApi\src\Documentation\PartialDocumentationInterface;
+use Selency\OpenApi\Documentation\PartialDocumentationInterface;
 
 #[AutoconfigureTag('app.partial_documentation')]
 class HealthDocumentation implements PartialDocumentationInterface
@@ -248,7 +248,7 @@ dedicated loader during compilation:
 ```php
 // Build a read-only model representing the documentation
 $compiler = new DocumentationCompiler([
-    new \Symfony\Component\OpenApi\src\Loader\SelfDescribingSchemaLoader([
+    new Selency\OpenApi\Loader\SelfDescribingSchemaLoader([
         AuthRegisterPayload::class,
     ])
 ]);
